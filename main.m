@@ -36,7 +36,7 @@ set(handles.edit2,'String',patient.Name);
 function listbox1_CreateFcn(hObject, eventdata, handles)
 global data filter
 data = Data();
-filter = 1;
+filter = 1:numel(data.index);
 set(hObject,'String',data.indexSe);
 if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
     set(hObject,'BackgroundColor','white');
@@ -77,4 +77,5 @@ if path ~=0
     filter = 1:numel(data.index);
     set(handles.listbox1,'Value',1);
     set(handles.listbox1,'String',data.indexSe);
+    save(data);
 end
